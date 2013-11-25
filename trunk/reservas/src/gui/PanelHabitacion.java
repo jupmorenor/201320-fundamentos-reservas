@@ -31,7 +31,7 @@ public class PanelHabitacion extends JPanel{
 	
 	private JTextField txtPrecioNoche;	
 	
-	private JComboBox cbxEstado;	
+	private JTextField txtEstado;	
 	
 	private String[] filtros1;
 	
@@ -46,10 +46,7 @@ public class PanelHabitacion extends JPanel{
 		this.setLayout(null);
 		
 		filtros1 = new String[]{"SIMPLE", "DOBLE", "TRIPLE"};
-		
-		filtros2 = new String[]{"DISPONIBLE", "NO DISPONIBLE"};		
-		
-		
+				
 		this.lblNumero = new JLabel("Número");
 		this.lblNumero.setBounds(20, 20, 100, 25);
 		
@@ -63,23 +60,24 @@ public class PanelHabitacion extends JPanel{
 		this.lblEstado.setBounds(20, 110, 100, 25);
 				
 		this.txtNumero = new JTextField();
-		this.txtNumero.setBounds(130, 20, 100, 25);
+		this.txtNumero.setBounds(160, 20, 200, 25);
 		
 		this.cbxTipo = new JComboBox(filtros1);
-		this.cbxTipo.setBounds(130, 50, 100, 25);
+		this.cbxTipo.setBounds(160, 50, 200, 25);
 		
 		this.txtPrecioNoche = new JTextField();
-		this.txtPrecioNoche.setBounds(130, 80, 100, 25);
+		this.txtPrecioNoche.setBounds(160, 80, 200, 25);
 		
-		this.cbxEstado = new JComboBox(filtros2);
-		this.cbxEstado.setBounds(130, 110, 100, 25);
+		this.txtEstado = new JTextField("DISPONIBLE");
+		this.txtEstado.setBounds(160, 110, 200, 25);
+		this.txtEstado.setEditable(false);
 		
 		this.add(lblEstado);
 		this.add(lblTipo);
 		this.add(lblPrecioNoche);
 		this.add(lblNumero);
 		this.add(txtNumero);
-		this.add(cbxEstado);
+		this.add(txtEstado);
 		this.add(cbxTipo);
 		this.add(txtPrecioNoche);
 	}

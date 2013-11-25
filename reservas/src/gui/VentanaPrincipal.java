@@ -12,7 +12,9 @@ import javax.swing.JFrame;
  */
 public class VentanaPrincipal extends JFrame{
 	
-	private PanelServicios panelServicios;
+	private PanelServicios1 panelServicios1;
+	
+	private PanelServicios2 panelServicios2;
 	
 	private PanelBusqueda panelBusqueda;
 	
@@ -22,36 +24,110 @@ public class VentanaPrincipal extends JFrame{
 	
 	private PanelReserva panelReserva;	
 	
+	private PanelConsumo panelConsumo;
+	
+	private PanelCancelar panelCancelar;
+	
+	private PanelMenu panelMenu;
+	
+	private VentanaSecundaria ventanaSecundaria;
+	
 	/**
 	 * 
 	 */
 	public VentanaPrincipal() {
 		super("Sistema de Gestión Hotelera"); 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);        
-        this.setSize(785, 380);
+        this.setSize(635, 510);
         this.setResizable(false);
         this.setLayout(null);        
         
+        ventanaSecundaria = new VentanaSecundaria();
+        
         panelBusqueda = new PanelBusqueda();
-        panelBusqueda.setBounds(10, 10, 760, 75);
+        panelBusqueda.setBounds(10, 10, 220, 400);
         
         panelHabitacion = new PanelHabitacion();
-        panelHabitacion.setBounds(10, 100, 246, 180);
+        panelHabitacion.setBounds(240, 70, 380, 180);
         
         panelHuesped = new PanelHuesped();
-        panelHuesped.setBounds(268, 100, 246, 180);
+        panelHuesped.setBounds(240, 70, 380, 180);
         
         panelReserva = new PanelReserva();
-        panelReserva.setBounds(525, 100, 246, 180);
+        panelReserva.setBounds(240, 70, 380, 180);
         
-        panelServicios = new PanelServicios(this);
-        panelServicios.setBounds(10, 290, 760, 50);
+        panelServicios1 = new PanelServicios1(this);
+        panelServicios1.setBounds(240, 10, 380, 50);
+        
+        panelServicios2 = new PanelServicios2(this);
+        panelServicios2.setBounds(10, 420, 610, 50);
+        
+        panelMenu = new PanelMenu(this);
+        panelMenu.setBounds(240, 250, 380, 30);   
+                     
+        this.eVerHabitacion();
         
         this.add(panelBusqueda); 
         this.add(panelHabitacion);
         this.add(panelHuesped);
         this.add(panelReserva);
-        this.add(panelServicios);
+        this.add(panelServicios1);
+        this.add(panelServicios2);
+        this.add(panelMenu);
+	}
+	
+	public void eHacerReserva(){
+		
+	}
+	
+	public void eCancelarReserva(){
+		PanelCancelar panelCancelar = new PanelCancelar();
+		ventanaSecundaria.setPanel(panelCancelar);
+		ventanaSecundaria.setTitulo("Cancelar Reserva");
+		ventanaSecundaria.setVisible(true);
+	}
+	
+	public void eCheckIn(){ 
+		PanelHuesped panelHuesped = new PanelHuesped();
+		ventanaSecundaria.setPanel(panelHuesped);
+		ventanaSecundaria.setTitulo("Hacer Check - In");
+		ventanaSecundaria.setVisible(true);
+	}
+	
+	public void eCheckOut(){
+		
+	}
+	
+	public void eRegistrarConsumo(){
+		PanelConsumo panelConsumo = new PanelConsumo();
+		ventanaSecundaria.setPanel(panelConsumo);
+		ventanaSecundaria.setTitulo("Registrar Consumo");
+		ventanaSecundaria.setVisible(true);
+	}
+	
+	public void eCrearHabitacion(){
+		PanelHabitacion panelHabitacion = new PanelHabitacion();
+		ventanaSecundaria.setPanel(panelHabitacion);
+		ventanaSecundaria.setTitulo("Crear Habitación");
+		ventanaSecundaria.setVisible(true);
+	}
+	
+	public void eVerHabitacion(){
+		this.panelHabitacion.setVisible(true);
+		this.panelHuesped.setVisible(false);
+		this.panelReserva.setVisible(false);
+	}
+	
+	public void eVerHuesped(){
+		this.panelHabitacion.setVisible(false);
+		this.panelHuesped.setVisible(true);
+		this.panelReserva.setVisible(false);
+	}
+	
+	public void eVerReserva(){
+		this.panelHabitacion.setVisible(false);
+		this.panelHuesped.setVisible(false);
+		this.panelReserva.setVisible(true);
 	}
 
 	/**

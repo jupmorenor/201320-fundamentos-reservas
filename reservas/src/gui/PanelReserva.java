@@ -47,13 +47,13 @@ public class PanelReserva extends JPanel{
 		this.lblFechaInicio.setBounds(20, 80, 100, 25);
 		
 		this.txtNumero = new JTextField();
-		this.txtNumero.setBounds(130, 20, 100, 25);
+		this.txtNumero.setBounds(160, 20, 200, 25);
 		
 		this.txtDiasReservados = new JTextField();
-		this.txtDiasReservados.setBounds(130, 50, 100, 25);
+		this.txtDiasReservados.setBounds(160, 50, 200, 25);
 		
 		this.txtFechaInicio = new JTextField();
-		this.txtFechaInicio.setBounds(130, 80, 100, 25);
+		this.txtFechaInicio.setBounds(160, 80, 200, 25);
 		
 		this.add(lblDiasReservados);
 		this.add(lblFechaInicio);

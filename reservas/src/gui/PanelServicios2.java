@@ -10,19 +10,17 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-public class PanelServicios extends JPanel implements ActionListener{
+public class PanelServicios2 extends JPanel implements ActionListener{
 	
 	private VentanaPrincipal ventanaPrincipal;
 	
 	public static final String HACER = "Hacer Reserva";
 	
-	public static final String ELIMINAR = "Eliminar Reserva";
+	public static final String CANCELAR = "Cancelar Reserva";
 	
 	public static final String CHECKIN = "Hacer Check-In";
 	
 	public static final String CHECKOUT = "Hacer Check-Out";
-	
-	public static final String CONSUMO = "Registrar Consumo";
 	
 	private JButton btnHacerReserva;
 	
@@ -31,13 +29,11 @@ public class PanelServicios extends JPanel implements ActionListener{
 	private JButton btnCheckIn;
 	
 	private JButton btnCheckOut;
-	
-	private JButton btnConsumo;
 
 	/**
 	 * 
 	 */
-	public PanelServicios(VentanaPrincipal ventanaPrincipal) {
+	public PanelServicios2(VentanaPrincipal ventanaPrincipal) {
 		this.setBorder(new TitledBorder(""));
 		this.setLayout(null);	
 		
@@ -48,8 +44,8 @@ public class PanelServicios extends JPanel implements ActionListener{
 		this.btnHacerReserva.addActionListener(this);
 		this.btnHacerReserva.setBounds(10, 10, 140, 30);
 		
-		this.btnEliminarReserva = new JButton(ELIMINAR);
-		this.btnEliminarReserva.setActionCommand(ELIMINAR);
+		this.btnEliminarReserva = new JButton(CANCELAR);
+		this.btnEliminarReserva.setActionCommand(CANCELAR);
 		this.btnEliminarReserva.addActionListener(this);
 		this.btnEliminarReserva.setBounds(160, 10, 140, 30);
 		
@@ -63,20 +59,26 @@ public class PanelServicios extends JPanel implements ActionListener{
 		this.btnCheckOut.addActionListener(this);
 		this.btnCheckOut.setBounds(460, 10, 140, 30);
 		
-		this.btnConsumo = new JButton(CONSUMO);
-		this.btnConsumo.setActionCommand(CONSUMO);
-		this.btnConsumo.addActionListener(this);
-		this.btnConsumo.setBounds(610, 10, 140, 30);
-		
 		this.add(btnHacerReserva);
 		this.add(btnEliminarReserva);
 		this.add(btnCheckIn);
 		this.add(btnCheckOut);
-		this.add(btnConsumo);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals(HACER)){
+			ventanaPrincipal.eHacerReserva();
+		}
+		if(e.getActionCommand().equals(CANCELAR)){
+			ventanaPrincipal.eCancelarReserva();
+		}
+		if(e.getActionCommand().equals(CHECKIN)){
+			ventanaPrincipal.eCheckIn();
+		}
+		if(e.getActionCommand().equals(CHECKOUT)){
+			ventanaPrincipal.eCheckOut();
+		}
 		
 	}
 

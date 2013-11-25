@@ -60,19 +60,19 @@ public class PanelHuesped extends JPanel{
 		this.lblDireccion.setBounds(20, 140, 100, 25);
 		
 		this.txtId = new JTextField();
-		this.txtId.setBounds(130, 20, 100, 25);
+		this.txtId.setBounds(160, 20, 200, 25);
 		
 		this.txtNombre = new JTextField();
-		this.txtNombre.setBounds(130, 50, 100, 25);
+		this.txtNombre.setBounds(160, 50, 200, 25);
 		
 		this.txtEdad = new JTextField();
-		this.txtEdad.setBounds(130, 80, 100, 25);
+		this.txtEdad.setBounds(160, 80, 200, 25);
 		
 		this.txtTelefono = new JTextField();
-		this.txtTelefono.setBounds(130, 110, 100, 25);
+		this.txtTelefono.setBounds(160, 110, 200, 25);
 		
 		this.txtDireccion = new JTextField();
-		this.txtDireccion.setBounds(130, 140, 100, 25);
+		this.txtDireccion.setBounds(160, 140, 200, 25);
 		
 		this.add(lblDireccion);
 		this.add(lblTelefono);

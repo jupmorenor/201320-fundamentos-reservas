@@ -4,15 +4,15 @@ public class UsuarioExistente  extends Usuario{
 	
 	@Override
 	public String consultarUsuario() {
-		String cadena = "select * from usuarios where(usuario='" 
-				+ this.getNombre() + "' and password='" + this.getPassword() + "');";
+		String cadena = "select k_idusuario, k_passusuario, o_descripcion from usuarios where(k_idusuario='" 
+				+ this.getIdusuario() + "' and k_passusuario='" + this.getPassword() + "' and k_tipousuario=k_idtipousuario);";
 		return cadena;
 	}
 
 	@Override
 	public String modificarRegistro() {
-		String cadena = "update usuarios set password='" + this.getPassword() 
-				+ "' where(nombre='" + this.getNombre() + "');";
+		String cadena = "update usuario set k_passusuario='" + this.getPassword() 
+				+ "' where(k_idusuario=" + this.getIdusuario() + ");";
 		return cadena;
 	}
 	

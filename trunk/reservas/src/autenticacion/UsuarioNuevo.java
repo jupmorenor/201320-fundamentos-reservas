@@ -4,19 +4,14 @@ public class UsuarioNuevo extends Usuario {
 
 	@Override
 	public String consultarUsuario() {
-		String cadena = "select * from usuarios where(usuario='" + this.getNombre()
-				+ "');";
+		String cadena = "select * from usuario where(k_idusuario='" + this.getIdusuario() +");";
 		return cadena;
 	}
 	
-	/**
-	 * Comando de MySQL que ingresa un nuevo registro a la base de datos de usuarios
-	 * @return cadena
-	 */
 	@Override
 	public String modificarRegistro() {
-		String cadena = "insert into usuarios values('"+ this.getNombre() + "','"
-				+ this.getPassword() + "','" + this.getTipoUsuario() + "');";
+		String cadena = "insert into usuario values("+ this.getIdusuario() + ",'"
+				+ this.getPassword() + "'," + this.getTipoUsuario() + ");";
 		return cadena;
 	}
 

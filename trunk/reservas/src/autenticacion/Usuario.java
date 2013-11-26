@@ -5,7 +5,7 @@ public abstract class Usuario {
 	/**
 	 * Nombre ingresado por el usuario
 	 */
-	protected String nombre;
+	protected int idUsuario;
 	
 	/**
 	 * Contraseña del usuario
@@ -15,22 +15,22 @@ public abstract class Usuario {
 	/**
 	 * Indica el tipo de usuario
 	 */
-	protected String tipoUsuario;
+	protected int tipoUsuario;
 	
 	/**
 	 * Devuelve el nombre del usuario
 	 * @return nombre del usuario
 	 */
-	public String getNombre() {
-		return nombre;
+	public int getIdusuario() {
+		return idUsuario;
 	}
 
 	/**
 	 * Establece el nombre del usuario
 	 * @param usuario nombre del usuario
 	 */
-	public void setNombre(String usuario) {
-		this.nombre = usuario;
+	public void setIdusuario(int usuario) {
+		this.idUsuario = usuario;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public abstract class Usuario {
 	 * Devuelve el tipo de usuario
 	 * @return tipo de usuario
 	 */
-	public String getTipoUsuario() {
+	public int getTipoUsuario() {
 		return tipoUsuario;
 	}
 
@@ -61,7 +61,7 @@ public abstract class Usuario {
 	 * Establece el tipo de usuario
 	 * @param tipoUsuario tipo de usuario
 	 */
-	public void setTipoUsuario(String tipoUsuario) {
+	public void setTipoUsuario(int tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 

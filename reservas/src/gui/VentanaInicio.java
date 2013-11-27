@@ -39,33 +39,34 @@ public class VentanaInicio extends JFrame implements ActionListener{
 
 	public VentanaInicio()  {
 		super("Sistema de Gestión Hotelera");
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);        
-        this.setSize(400, 200);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE); 
+		this.setLocationRelativeTo(null);
+        this.setSize(365, 175);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         
         this.lblUsuario = new JLabel("Usuario");
-        this.lblUsuario.setBounds(70, 30, 100, 30);
+        this.lblUsuario.setBounds(30, 10, 130, 30);
         
         this.lblPassword = new JLabel("Contraseña");
-        this.lblPassword.setBounds(70, 70, 100, 30);
+        this.lblPassword.setBounds(30, 50, 130, 30);
         
         this.txtUsuario = new JTextField();
-        this.txtUsuario.setBounds(210, 30, 125, 30);
+        this.txtUsuario.setBounds(170, 10, 160, 30);
         
         this.txtPassword = new JPasswordField();
-        this.txtPassword.setBounds(210, 70, 125, 30);
+        this.txtPassword.setBounds(170, 50, 160, 30);
         
         this.btnIngresar = new JButton(INGRESAR);
         this.btnIngresar.addActionListener(this);
         this.btnIngresar.setActionCommand(INGRESAR);
-        this.btnIngresar.setBounds(70, 110, 125, 30);
+        this.btnIngresar.setBounds(30, 105, 145, 30);
         
         this.btnRegistrarse = new JButton(REGISTRARSE);
         this.btnRegistrarse.addActionListener(this);
         this.btnRegistrarse.setActionCommand(REGISTRARSE);
-        this.btnRegistrarse.setBounds(210, 110, 125, 30);
+        this.btnRegistrarse.setBounds(185, 105, 145, 30);
         
         this.add(this.lblUsuario);
         this.add(this.txtUsuario);

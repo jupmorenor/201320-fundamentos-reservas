@@ -21,7 +21,8 @@ public class VentanaSecundaria extends JFrame{
 	 * 
 	 */
 	public VentanaSecundaria() {
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+        this.setLocationRelativeTo(null);
         this.setSize(405, 290);
         this.setResizable(false);
         this.setLayout(null); 

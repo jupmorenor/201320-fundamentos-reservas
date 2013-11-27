@@ -4,6 +4,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JLabel;
@@ -32,6 +33,8 @@ public class PanelHacerReserva extends JPanel{
 	private JTextField txtDias;	
 	
 	private JCalendar cldFechaInicio;	
+	
+	private SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
 
 	/**
 	 * 
@@ -101,8 +104,8 @@ public class PanelHacerReserva extends JPanel{
 	 * retorn la fecha de inicio ( TIPO Date )
 	 * @return
 	 */
-	public Date getFechaInicio() {
-		return cldFechaInicio.getDate();
+	public String getFechaInicio() {
+		return formato.format(cldFechaInicio.getDate());
 	}
 	
 }

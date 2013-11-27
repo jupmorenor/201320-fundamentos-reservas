@@ -10,13 +10,15 @@ import javax.swing.JFrame;
  * @author Jhamir
  *
  */
-public class VentanaPrincipal extends JFrame{
+public class VentanaAdministrador extends JFrame{
 	
 	private PanelServicios1 panelServicios1;
 	
 	private PanelServicios2 panelServicios2;
 	
-	private PanelBusqueda panelBusqueda;
+	private PanelBusquedaHabitacion panelBusquedaHabitacion;
+	
+	private PanelBusquedaReserva panelBusquedaReserva;
 	
 	private PanelHabitacion panelHabitacion;
 	
@@ -35,17 +37,18 @@ public class VentanaPrincipal extends JFrame{
 	/**
 	 * 
 	 */
-	public VentanaPrincipal() {
+	public VentanaAdministrador() {
 		super("Sistema de Gestión Hotelera"); 
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);        
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE); 
+        this.setLocationRelativeTo(null);
         this.setSize(635, 510);
         this.setResizable(false);
         this.setLayout(null);        
         
         ventanaSecundaria = new VentanaSecundaria();
         
-        panelBusqueda = new PanelBusqueda();
-        panelBusqueda.setBounds(10, 10, 220, 400);
+        panelBusquedaHabitacion = new PanelBusquedaHabitacion();
+        panelBusquedaHabitacion.setBounds(10, 10, 220, 400);
         
         panelHabitacion = new PanelHabitacion();
         panelHabitacion.setBounds(240, 70, 380, 180);
@@ -63,17 +66,21 @@ public class VentanaPrincipal extends JFrame{
         panelServicios2.setBounds(10, 420, 610, 50);
         
         panelMenu = new PanelMenu(this);
-        panelMenu.setBounds(240, 250, 380, 30);   
+        panelMenu.setBounds(240, 250, 380, 30); 
+        
+        panelBusquedaReserva = new PanelBusquedaReserva();
+        panelBusquedaReserva.setBounds(240, 310, 220, 100);
                      
         this.eVerHabitacion();
         
-        this.add(panelBusqueda); 
+        this.add(panelBusquedaHabitacion); 
         this.add(panelHabitacion);
         this.add(panelHuesped);
         this.add(panelReserva);
         this.add(panelServicios1);
         this.add(panelServicios2);
         this.add(panelMenu);
+        this.add(panelBusquedaReserva);
 	}
 	
 	public void eHacerReserva(){
@@ -134,7 +141,7 @@ public class VentanaPrincipal extends JFrame{
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		VentanaPrincipal principal = new VentanaPrincipal();
+		VentanaAdministrador principal = new VentanaAdministrador();
 		principal.setVisible(true);
 	}
 

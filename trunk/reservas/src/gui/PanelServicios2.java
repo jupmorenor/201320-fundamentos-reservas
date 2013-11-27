@@ -12,7 +12,7 @@ import javax.swing.border.TitledBorder;
 
 public class PanelServicios2 extends JPanel implements ActionListener{
 	
-	private VentanaPrincipal ventanaPrincipal;
+	private VentanaAdministrador ventanaAdministrador;
 	
 	public static final String HACER = "Hacer Reserva";
 	
@@ -24,7 +24,7 @@ public class PanelServicios2 extends JPanel implements ActionListener{
 	
 	private JButton btnHacerReserva;
 	
-	private JButton btnEliminarReserva;
+	private JButton btnCancelarReserva;
 	
 	private JButton btnCheckIn;
 	
@@ -33,21 +33,21 @@ public class PanelServicios2 extends JPanel implements ActionListener{
 	/**
 	 * 
 	 */
-	public PanelServicios2(VentanaPrincipal ventanaPrincipal) {
+	public PanelServicios2(VentanaAdministrador ventanaAdministrador) {
 		this.setBorder(new TitledBorder(""));
 		this.setLayout(null);	
 		
-		this.ventanaPrincipal = ventanaPrincipal;
+		this.ventanaAdministrador = ventanaAdministrador;
 		
 		this.btnHacerReserva = new JButton(HACER);
 		this.btnHacerReserva.setActionCommand(HACER);
 		this.btnHacerReserva.addActionListener(this);
 		this.btnHacerReserva.setBounds(10, 10, 140, 30);
 		
-		this.btnEliminarReserva = new JButton(CANCELAR);
-		this.btnEliminarReserva.setActionCommand(CANCELAR);
-		this.btnEliminarReserva.addActionListener(this);
-		this.btnEliminarReserva.setBounds(160, 10, 140, 30);
+		this.btnCancelarReserva = new JButton(CANCELAR);
+		this.btnCancelarReserva.setActionCommand(CANCELAR);
+		this.btnCancelarReserva.addActionListener(this);
+		this.btnCancelarReserva.setBounds(160, 10, 140, 30);
 		
 		this.btnCheckIn = new JButton(CHECKIN);
 		this.btnCheckIn.setActionCommand(CHECKIN);
@@ -60,7 +60,7 @@ public class PanelServicios2 extends JPanel implements ActionListener{
 		this.btnCheckOut.setBounds(460, 10, 140, 30);
 		
 		this.add(btnHacerReserva);
-		this.add(btnEliminarReserva);
+		this.add(btnCancelarReserva);
 		this.add(btnCheckIn);
 		this.add(btnCheckOut);
 	}
@@ -68,16 +68,16 @@ public class PanelServicios2 extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals(HACER)){
-			ventanaPrincipal.eHacerReserva();
+			ventanaAdministrador.eHacerReserva();
 		}
 		if(e.getActionCommand().equals(CANCELAR)){
-			ventanaPrincipal.eCancelarReserva();
+			ventanaAdministrador.eCancelarReserva();
 		}
 		if(e.getActionCommand().equals(CHECKIN)){
-			ventanaPrincipal.eCheckIn();
+			ventanaAdministrador.eCheckIn();
 		}
 		if(e.getActionCommand().equals(CHECKOUT)){
-			ventanaPrincipal.eCheckOut();
+			ventanaAdministrador.eCheckOut();
 		}
 		
 	}

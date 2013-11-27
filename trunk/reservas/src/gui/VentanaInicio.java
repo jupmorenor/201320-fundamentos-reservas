@@ -32,7 +32,7 @@ public class VentanaInicio extends JFrame implements ActionListener{
 	private AdminConexion conector;
 	private Conector conexion;
 	private Usuario usuario;
-	private VentanaPrincipal principal;
+	private VentanaAdministrador principal;
 	
 	private static final String INGRESAR = "Ingresar";
 	private static final String REGISTRARSE = "Registrarse";
@@ -99,7 +99,7 @@ public class VentanaInicio extends JFrame implements ActionListener{
 						if (usuario.getPassword().equals(consulta.getString("k_passusuario"))) {	
 							switch (consulta.getString("o_descripcion")) {
 							case "ADMINISTRADOR":
-								principal = new VentanaPrincipal();
+								principal = new VentanaAdministrador();
 								principal.setVisible(true);
 								this.setVisible(false);
 								break;

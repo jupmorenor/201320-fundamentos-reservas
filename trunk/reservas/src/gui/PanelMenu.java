@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
  */
 public class PanelMenu extends JPanel implements ActionListener{
 	
-	private VentanaPrincipal ventanaPrincipal;
+	private VentanaAdministrador ventanaAdministrador;
 	
 	public static final String HABITACION = "HABITACIÓN";
 	
@@ -34,11 +34,11 @@ public class PanelMenu extends JPanel implements ActionListener{
 	/**
 	 * 
 	 */
-	public PanelMenu(VentanaPrincipal ventanaPrincipal) {
+	public PanelMenu(VentanaAdministrador ventanaAdministrador) {
 		this.setBorder(new TitledBorder(""));
 		this.setLayout(new GridLayout(1, 3));	
 		
-		this.ventanaPrincipal = ventanaPrincipal;
+		this.ventanaAdministrador = ventanaAdministrador;
 		
 		this.btnHabitacion = new JButton(HABITACION);
 		this.btnHabitacion.setActionCommand(HABITACION);
@@ -60,13 +60,13 @@ public class PanelMenu extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals(HABITACION)){
-			ventanaPrincipal.eVerHabitacion();
+			ventanaAdministrador.eVerHabitacion();
 		}
 		if(e.getActionCommand().equals(HUESPED)){
-			ventanaPrincipal.eVerHuesped();
+			ventanaAdministrador.eVerHuesped();
 		}
 		if(e.getActionCommand().equals(RESERVA)){
-			ventanaPrincipal.eVerReserva();
+			ventanaAdministrador.eVerReserva();
 		}
 	}
 

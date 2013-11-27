@@ -72,7 +72,9 @@ public class Habitacion implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "INSERT INTO habitacion (k_numerohabitacion, k_idtipohabitacion, v_precionoche) " +
+				"VALUES (" + getNumHabitacion() + ", '" + getTipoHabitacion() + "', " + getPrecioNoche() + ");";
+		return cadena;
 	}
 
 
@@ -96,7 +98,8 @@ public class Habitacion implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#consultarDatos()
 	 */
 	public String consultarDatos() {
-		return null;
+		String cadena = "";
+		return cadena;
 	}
 
 }

@@ -54,7 +54,10 @@ public class Servicio implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "INSERT INTO servicio (k_idservicio, n_nombre, d_descservicio, v_valorservicio) " +
+				"VALUES (((SELECT COUNT(k_idservicio) FROM servicio) + 1),'" + getNombreServicio() + "', '" + 
+				getDescripcion() + "', " + getValorServicio() + ");";
+		return cadena;
 	}
 
 

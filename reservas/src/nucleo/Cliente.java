@@ -30,7 +30,9 @@ public class Cliente implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "INSERT INTO cliente (k_idcliente, n_nombrecliente) " +
+				"VALUES(" + getIdCliente() + ", UPPER('" + getNombreCliente() + "'));";
+		return cadena;
 	}
 
 
@@ -54,7 +56,8 @@ public class Cliente implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#consultarDatos()
 	 */
 	public String consultarDatos() {
-		return null;
+		String cadena = "SELECT * FROM cliente WHERE k_idcliente = " + getIdCliente() + ";";
+		return cadena;
 	}
 
 }

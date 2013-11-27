@@ -66,7 +66,11 @@ public class Huesped implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "INSERT INTO huesped (k_identificacion, n_nombre, v_edad, o_direccion, o_telefono) " +
+				"VALUES (" + getIdHuesped() + "," +
+						"UPPER('" + getNombreHuesped() + "')," + getEdad() + 
+						",'" + getDireccion() + "'," + getTelefono() + ");";
+		return cadena;
 	}
 
 
@@ -90,7 +94,8 @@ public class Huesped implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#consultarDatos()
 	 */
 	public String consultarDatos() {
-		return null;
+		String cadena = "SELECT * FROM huesped WHERE k_identificacion = " + getIdHuesped() + ";";
+		return cadena;
 	}
 
 }

@@ -55,7 +55,10 @@ public class Estadia implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "INSERT INTO estadia (k_idestadia, f_fechainicio, q_nochesestadia) " +
+				"VALUES (((SELECT COUNT(k_idestadia) FROM estadia) + 1), '" + getFechaInicio() + 
+				"', " + getNochesEstadia() + ");";
+		return cadena;
 	}
 
 

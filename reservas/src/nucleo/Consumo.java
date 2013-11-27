@@ -67,7 +67,12 @@ public class Consumo implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "INSERT INTO consumo (k_consecutivo, k_idservicio, k_numerohabitacion, q_cantidadconsumida, f_fechaconsumo) " +
+				"VALUES((SELECT MAX(HO.k_consecutivo) FROM estadia E, habitacionocupada HO " +
+				"WHERE E.k_idestadia = HO.k_idestadia AND HO.k_numerohabitacion = " + habitacionOcupada.getHabitacion().getNumHabitacion() + 
+				" AND E.f_fechainicio <= current_date AND current_date <= (E.f_fechainicio + E.q_nochesestadia))," +
+				servicio.getIdServicio() + ", " + habitacionOcupada.getHabitacion().getNumHabitacion() +", " + getCantidad() + "," + getFechaConsumo() + " );";
+		return cadena;
 	}
 
 

@@ -4,7 +4,7 @@ public class UsuarioNuevo extends Usuario {
 
 	@Override
 	public String consultarUsuario() {
-		String cadena = "select * from usuario where(k_idusuario='" + this.getIdusuario() +");";
+		String cadena = "select * from usuario where(k_idusuario=" + this.getIdusuario() +");";
 		return cadena;
 	}
 	

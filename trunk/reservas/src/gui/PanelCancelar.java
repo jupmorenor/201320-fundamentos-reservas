@@ -3,6 +3,8 @@
  */
 package gui;
 
+import java.util.Date;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -26,6 +28,7 @@ public class PanelCancelar extends JPanel{
 	 * 
 	 */
 	public PanelCancelar() {
+		this.setName("panel_cancelar");
 		this.setBorder(new TitledBorder(""));
 		this.setLayout(null);
 		
@@ -44,4 +47,20 @@ public class PanelCancelar extends JPanel{
 		this.add(cldFechaInicio);
 	}
 
+	/**
+	 * retorna el nombre del usuario
+	 * @return
+	 */
+	public String getNombre() {
+		return txtNombre.getText();
+	}
+
+	/**
+	 * retorna la fecha de inicio (TIPO Date)
+	 * @return
+	 */
+	public Date getFechaInicio() {
+		return cldFechaInicio.getDate();
+	}
+	
 }

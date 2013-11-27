@@ -21,7 +21,7 @@ public class PanelServicios2 extends JPanel implements ActionListener{
 	public static final String CHECKIN = "Hacer Check-In";
 	
 	public static final String CHECKOUT = "Hacer Check-Out";
-	
+
 	private JButton btnHacerReserva;
 	
 	private JButton btnCancelarReserva;
@@ -31,7 +31,7 @@ public class PanelServicios2 extends JPanel implements ActionListener{
 	private JButton btnCheckOut;
 
 	/**
-	 * 
+	 * en este panel estan los botones que manejan los servicios de hacer reserva, cancelar reserva, hacer checkin y hacercheckout
 	 */
 	public PanelServicios2(VentanaAdministrador ventanaAdministrador) {
 		this.setBorder(new TitledBorder(""));

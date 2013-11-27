@@ -37,6 +37,7 @@ public class PanelConsumo extends JPanel{
 	 * 
 	 */
 	public PanelConsumo() {
+		this.setName("panel_consumo");
 		this.setBorder(new TitledBorder("Información del Servicio"));
 		this.setLayout(new BorderLayout());	
 		this.setLayout(null);
@@ -75,4 +76,36 @@ public class PanelConsumo extends JPanel{
 		this.add(txtValor);
 	}
 
+	/**
+	 * retorna el codigo del consumo
+	 * @return
+	 */
+	public String getCodigo() {
+		return txtCodigo.getText();
+	}
+
+	/**
+	 * retorna el nombre del consumo
+	 * @return
+	 */
+	public String getNombre() {
+		return txtNombre.getText();
+	}
+
+	/**
+	 * retorna el vaor del consumo
+	 * @return
+	 */
+	public double getValor() {
+		return Double.parseDouble(txtValor.getText());
+	}
+
+	/**
+	 * retorna la cantidad del consumo
+	 * @return
+	 */
+	public int getCantidad() {
+		return Integer.parseInt(txtCantidad.getText());
+	}
+	
 }

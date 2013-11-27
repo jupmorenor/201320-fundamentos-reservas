@@ -33,6 +33,8 @@ public class VentanaCliente extends JFrame implements ActionListener{
 	
 	private JButton btnCancelarReserva;
 
+	private VentanaSecundaria ventanaSecundaria;
+	
 	/**
 	 * 
 	 */
@@ -44,20 +46,25 @@ public class VentanaCliente extends JFrame implements ActionListener{
         this.setResizable(false);
         this.setLayout(null);
         
+        ventanaSecundaria = new VentanaSecundaria();
+        
         panelBusquedaHabitacion = new PanelBusquedaHabitacion();
         panelBusquedaHabitacion.setBounds(10, 10, 220, 325);
         
         panelHabitacion = new PanelHabitacion();
         panelHabitacion.setBounds(240, 10, 380, 150);
+        panelHabitacion.deshabilitarCampos();
         
         panelHuesped = new PanelHuesped();
         panelHuesped.setBounds(240, 170, 380, 180);
+        panelHuesped.deshabilitarCampos();
         
         panelReserva = new PanelReserva();
         panelReserva.setBounds(240, 360, 380, 120);
+        panelReserva.deshabilitarCampos();
         
         panelBusquedaReserva = new PanelBusquedaReserva();
-        panelBusquedaReserva.setBounds(10, 340, 220, 100);
+        panelBusquedaReserva.setBounds(10, 340, 220, 100);        
         
 		this.btnHacerReserva = new JButton(HACER);
 		this.btnHacerReserva.setActionCommand(HACER);
@@ -87,7 +94,18 @@ public class VentanaCliente extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getActionCommand().equals(HACER)){
+			PanelHacerReserva panelHacerReserva = new PanelHacerReserva();
+			ventanaSecundaria.setPanel(panelHacerReserva);
+			ventanaSecundaria.setTitulo("Hacer Reserva");
+			ventanaSecundaria.setVisible(true);
+		}
+		if(e.getActionCommand().equals(CANCELAR)){
+			PanelCancelar panelCancelar = new PanelCancelar();
+			ventanaSecundaria.setPanel(panelCancelar);
+			ventanaSecundaria.setTitulo("Cancelar Reserva");
+			ventanaSecundaria.setVisible(true);
+		}
 		
 	}
 

@@ -5,7 +5,6 @@ package gui;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;

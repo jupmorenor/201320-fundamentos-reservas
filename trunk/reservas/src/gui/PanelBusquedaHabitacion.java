@@ -36,7 +36,7 @@ public class PanelBusquedaHabitacion extends JPanel implements ActionListener{
 	
 	private JLabel lblNombre;
 		
-	private JComboBox cbxTipo;
+	private JComboBox<String> cbxTipo;
 	
 	private JTextField txtNombre;
 	
@@ -104,7 +104,7 @@ public class PanelBusquedaHabitacion extends JPanel implements ActionListener{
 		this.lblTipo = new JLabel("Tipo");
 		this.lblTipo.setBounds(10, 270, 50, 20);
 		
-		this.cbxTipo = new JComboBox(tipos);
+		this.cbxTipo = new JComboBox<String>(tipos);
 		this.cbxTipo.setBounds(70, 270, 140, 20);
 		
 		this.btnBuscarDisponibilidad = new JButton(BUSCARDISPONIBILIDAD);

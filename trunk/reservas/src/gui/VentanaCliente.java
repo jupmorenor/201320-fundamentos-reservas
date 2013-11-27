@@ -85,28 +85,22 @@ public class VentanaCliente extends JFrame implements ActionListener{
 		this.add(btnCancelarReserva);
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new VentanaCliente().setVisible(true);
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals(HACER)){
+		switch (e.getActionCommand()) {
+		case HACER:
 			PanelHacerReserva panelHacerReserva = new PanelHacerReserva();
 			ventanaSecundaria.setPanel(panelHacerReserva);
 			ventanaSecundaria.setTitulo("Hacer Reserva");
 			ventanaSecundaria.setVisible(true);
-		}
-		if(e.getActionCommand().equals(CANCELAR)){
+			break;
+			
+		case CANCELAR:
 			PanelCancelar panelCancelar = new PanelCancelar();
 			ventanaSecundaria.setPanel(panelCancelar);
 			ventanaSecundaria.setTitulo("Cancelar Reserva");
 			ventanaSecundaria.setVisible(true);
-		}
-		
+			break;
+		}		
 	}
-
 }

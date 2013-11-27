@@ -141,13 +141,4 @@ public class VentanaAdministrador extends JFrame{
 		this.panelHuesped.setVisible(false);
 		this.panelReserva.setVisible(true);
 	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		VentanaAdministrador principal = new VentanaAdministrador();
-		principal.setVisible(true);
-	}
-
 }

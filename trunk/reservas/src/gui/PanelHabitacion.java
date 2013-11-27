@@ -27,7 +27,7 @@ public class PanelHabitacion extends JPanel{
 	
 	private JTextField txtNumero;
 	
-	private JComboBox cbxTipo;
+	private JComboBox<String> cbxTipo;
 	
 	private JTextField txtPrecioNoche;	
 	
@@ -61,7 +61,7 @@ public class PanelHabitacion extends JPanel{
 		this.txtNumero = new JTextField();
 		this.txtNumero.setBounds(160, 20, 200, 25);
 		
-		this.cbxTipo = new JComboBox(filtros1);
+		this.cbxTipo = new JComboBox<String>(filtros1);
 		this.cbxTipo.setBounds(160, 50, 200, 25);
 		
 		this.txtPrecioNoche = new JTextField();

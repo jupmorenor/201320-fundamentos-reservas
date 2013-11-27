@@ -18,7 +18,7 @@ public interface AccesoaDatos {
 	 * Retorna una cadena SQL que realiza la eliminacion de datos en la BD
 	 * @return
 	 */
-	public abstract String eliminarDatos();
+	public abstract String validarDatos();
 
 	/**
 	 * Retorna una cadena SQL que realiza la consulta de datos en la BD

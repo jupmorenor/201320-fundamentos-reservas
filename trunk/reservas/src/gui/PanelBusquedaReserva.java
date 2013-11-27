@@ -5,12 +5,19 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
+import conector.AdminConexion;
+import conector.Conector;
+
+import nucleo.Cliente;
+import nucleo.Reservacion;
 
 /**
  * @author Jhamir
@@ -27,6 +34,10 @@ public class PanelBusquedaReserva extends JPanel implements ActionListener{
 	private JTextField txtNombre;
 	
 	private JButton btnBuscar;
+	
+	private Conector conexion;
+	
+	private ResultSet consulta;
 
 	/**
 	 * 
@@ -57,9 +68,23 @@ public class PanelBusquedaReserva extends JPanel implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+		switch (e.getActionCommand()) {
+		case BUSCAR:
+			Cliente cliente = new Cliente();
+			cliente.setNombreCliente(txtNombre.getText());
+			Reservacion reserva = new Reservacion();
+			reserva.setCliente(cliente);
+			Conector conexion = new AdminConexion("datos2.jaa").generarConexion();
+			conexion.SetCadena(reserva.validarDatos());
+			consulta = conexion.Consultar();
+			break;
+		}
 		
+	}
+	
+	public ResultSet getConsulta() {
+		return consulta;
 	}
 
 }

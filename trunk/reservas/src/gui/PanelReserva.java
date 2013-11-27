@@ -4,9 +4,11 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.sql.ResultSet;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
@@ -28,6 +30,8 @@ public class PanelReserva extends JPanel{
 	private JTextField txtDiasReservados;
 	
 	private JTextField txtFechaInicio;
+	
+	private ResultSet consulta;
 
 	/**
 	 * 
@@ -119,6 +123,16 @@ public class PanelReserva extends JPanel{
 	public void setFechaInicio(String fechaInicio) {
 		this.txtFechaInicio.setText(fechaInicio);
 	}
-
 	
+	public void setConsulta(ResultSet consulta) {
+		this.consulta = consulta;
+		try {
+			if(consulta.next()) {
+				
+			}
+		}catch (Exception ex) {
+			JOptionPane.showMessageDialog(this, "No se encontraron datos", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		
+	}	
 }

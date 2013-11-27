@@ -78,10 +78,13 @@ public class Reservacion implements AccesoaDatos {
 
 
 	/**
-	 * @see nucleo.AccesoaDatos#eliminarDatos()
+	 * @see nucleo.AccesoaDatos#validarDatos()
 	 */
-	public String eliminarDatos() {
-		return null;
+	public String validarDatos() {
+		String cadena = "SELECT R.k_idreservacion FROM reservacion R, cliente C " +
+				"WHERE R.k_idcliente = C.k_idcliente AND " +
+				"(C.n_nombrecliente LIKE UPPER('" + cliente.getNombreCliente() + "'));";
+		return cadena;
 	}
 
 

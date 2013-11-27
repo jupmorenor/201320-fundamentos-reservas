@@ -36,41 +36,41 @@ public class VentanaRegistroUsuario extends JDialog implements ActionListener {
 	private static final String CANCELAR = "Cancelar";
 	
 	public VentanaRegistroUsuario() {
-		this.setTitle("Registro de nuevo usuario");
+		this.setTitle("Registrar Nuevo Usuario");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);        
-        this.setSize(400, 200);
+        this.setSize(365, 175);
         this.setResizable(false);
         this.setModalityType(DEFAULT_MODALITY_TYPE);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         
         lblUsuario = new JLabel("Documento");
-        lblUsuario.setBounds(70, 30, 100, 30);
+        lblUsuario.setBounds(30, 10, 130, 25);
         
         lblPassword = new JLabel("Contraseña");
-        lblPassword.setBounds(70, 70, 100, 30);
+        lblPassword.setBounds(30, 40, 130, 25);
         
         lblPasswordConf = new JLabel("Confirmar Contraseña");
-        lblPasswordConf.setBounds(70, 110, 100, 30);
+        lblPasswordConf.setBounds(30, 70, 130, 25);
         
         txtUsuario = new JTextField();
-        txtUsuario.setBounds(210, 30, 125, 30);
+        txtUsuario.setBounds(170, 10, 160, 25);
         
         txtPassword = new JPasswordField();
-        txtPassword.setBounds(210, 70, 125, 30);
+        txtPassword.setBounds(170, 40, 160, 25);
         
         txtPasswordConf = new JPasswordField();
-        txtPasswordConf.setBounds(210, 110, 125, 30);
+        txtPasswordConf.setBounds(170, 70, 160, 25);
         
         btnAceptar = new JButton(ACEPTAR);
         btnAceptar.addActionListener(this);
         btnAceptar.setActionCommand(ACEPTAR);
-        btnAceptar.setBounds(70, 150, 100, 30);
+        btnAceptar.setBounds(30, 105, 145, 30);
         
         btnCancelar = new JButton(CANCELAR);
         btnCancelar.addActionListener(this);
         btnCancelar.setActionCommand(CANCELAR);
-        btnCancelar.setBounds(210, 150, 100, 30);
+        btnCancelar.setBounds(185, 105, 145, 30);
         
         add(lblUsuario);
         add(lblPassword);
@@ -109,7 +109,7 @@ public class VentanaRegistroUsuario extends JDialog implements ActionListener {
 					} else {
 						txtPassword.setText("");
 						txtPasswordConf.setText("");
-						JOptionPane.showMessageDialog(this, "Las contrasñas no coinciden", "Error de contraseña", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden", "Error de contraseña", JOptionPane.ERROR_MESSAGE);
 					}			
 				} else {
 					JOptionPane.showMessageDialog(this, "No se encuentran los datos de conexion", "Error de conexion", JOptionPane.ERROR_MESSAGE);

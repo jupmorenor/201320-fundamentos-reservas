@@ -4,7 +4,7 @@ public class Cliente implements AccesoaDatos {
 
 	private int idCliente;
 
-	private int nombreCliente;
+	private String nombreCliente;
 
 	public int getIdCliente() {
 		return idCliente;
@@ -16,12 +16,12 @@ public class Cliente implements AccesoaDatos {
 	}
 
 
-	public int getNombreCliente() {
+	public String getNombreCliente() {
 		return nombreCliente;
 	}
 
 
-	public void setNombreCliente(int nombreCliente) {
+	public void setNombreCliente(String nombreCliente) {
 		this.nombreCliente = nombreCliente;
 	}
 

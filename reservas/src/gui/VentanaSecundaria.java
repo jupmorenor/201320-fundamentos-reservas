@@ -7,7 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import nucleo.Cliente;
+import nucleo.Estadia;
 import nucleo.Habitacion;
+import nucleo.Reservacion;
 
 import conector.AdminConexion;
 import conector.Conector;
@@ -70,29 +73,45 @@ public class VentanaSecundaria extends JFrame{
 		//Define lo que ocurre cuando se la da aceptar a la ventana secundaria hacer reserva
 		case "panel_hacer_reserva":
 			PanelHacerReserva panelHacerReserva = (PanelHacerReserva) panelPrincipal;
-			//TODO pasos para hacer una reserva			
-			JOptionPane.showMessageDialog(null, "Ejemplo Prueba: Reserva Hecha Dias: " + panelHacerReserva.getDias());
+			conexion = new AdminConexion("datos2.jaa").generarConexion();
+			Cliente cliente = new Cliente();
+			cliente.setIdCliente(panelHacerReserva.getId());
+			cliente.setNombreCliente(panelHacerReserva.getNombre());
+			Estadia estadia = new Estadia();
+			estadia.setNochesEstadia(panelHacerReserva.getDias());
+			estadia.setFechaInicio(panelHacerReserva.getFechaInicio());
+			Reservacion reserva = new Reservacion();
+			reserva.setCliente(cliente);
+			reserva.setEstadia(estadia);
+			conexion.SetCadena(cliente.guardarDatos());
+			conexion.EjecutarSql();
+			conexion.SetCadena(estadia.guardarDatos());
+			conexion.EjecutarSql();
+			conexion.SetCadena(reserva.guardarDatos());
+			conexion.EjecutarSql();
+			
+			JOptionPane.showMessageDialog(this, "Reserva exitosa. Dias: " + panelHacerReserva.getDias());
 			break;
 			
 		//Define lo que ocurre cuando se la da aceptar a la ventana secundaria cancelar reserva
 		case "panel_cancelar":
 			PanelCancelar panelCancelar = (PanelCancelar) panelPrincipal;
 			//TODO pasos para cancelar una reserva
-			JOptionPane.showMessageDialog(null, "Ejemplo Prueba: Reserva Cancelada Nombre: " + panelCancelar.getNombre() );
+			JOptionPane.showMessageDialog(this, "Ejemplo Prueba: Reserva Cancelada Nombre: " + panelCancelar.getNombre() );
 			break;
 			
 		//Define lo que ocurre cuando se la da aceptar a la ventana secundaria hacer check in
 		case "panel_huesped":
 			PanelHuesped panelHuesped = (PanelHuesped) panelPrincipal;
 			//TODO pasos para hacer un check in
-			JOptionPane.showMessageDialog(null, "Ejemplo Prueba: CheckIn Hecho Identi: " + panelHuesped.getId());
+			JOptionPane.showMessageDialog(this, "Ejemplo Prueba: CheckIn Hecho Identi: " + panelHuesped.getId());
 			break;
 			
 		//Define lo que ocurre cuando se la da aceptar a la ventana secundaria hacer check out	
 		case "tabla_consumos":
 			TablaConsumos tablaConsumos = (TablaConsumos) panelPrincipal;
 			//TODO pasos para hacer un check out
-			JOptionPane.showMessageDialog(null, "Ejemplo Prueba: CheckOut Hecho Recaudo: " + tablaConsumos.getTotal());
+			JOptionPane.showMessageDialog(this, "Ejemplo Prueba: CheckOut Hecho Recaudo: " + tablaConsumos.getTotal());
 			break;
 			
 		//Define lo que ocurre cuando se la da aceptar a la ventana secundaria crear habitacion
@@ -101,15 +120,18 @@ public class VentanaSecundaria extends JFrame{
 			conexion = new AdminConexion("datos2.jaa").generarConexion();
 			Habitacion hab = new Habitacion();
 			hab.setNumHabitacion(panelHabitacion.getNumero());
-			hab.setTipoHabitacion(panelHabitacion.getTipo());
-			JOptionPane.showMessageDialog(null, "Ejemplo Prueba: Habitacion Creada Numero: " + panelHabitacion.getNumero());
+			hab.setTipoHabitacion(panelHabitacion.getTipo().substring(0,1));
+			hab.setPrecioNoche((int)panelHabitacion.getPrecioNoche());
+			conexion.SetCadena(hab.guardarDatos());
+			conexion.EjecutarSql();
+			JOptionPane.showMessageDialog(this, "Habitacion Creada Numero: " + panelHabitacion.getNumero());
 			break;
 		
 			//Define lo que ocurre cuando se la da aceptar a la ventana secundaria registrar consumo
 		case "panel_consumo":
 			PanelConsumo panelConsumo = (PanelConsumo) panelPrincipal;
 			//TODO pasos para registrar un consumo
-			JOptionPane.showMessageDialog(null, "Ejemplo Prueba: Consumo Registrado Nombre: " + panelConsumo.getNombre());
+			JOptionPane.showMessageDialog(this, "Ejemplo Prueba: Consumo Registrado Nombre: " + panelConsumo.getNombre());
 			break;
 		
 		}

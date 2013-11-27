@@ -85,9 +85,9 @@ public class Consumo implements AccesoaDatos {
 
 
 	/**
-	 * @see nucleo.AccesoaDatos#eliminarDatos()
+	 * @see nucleo.AccesoaDatos#validarDatos()
 	 */
-	public String eliminarDatos() {
+	public String validarDatos() {
 		return null;
 	}
 

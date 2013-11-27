@@ -141,4 +141,8 @@ public class VentanaAdministrador extends JFrame{
 		this.panelHuesped.setVisible(false);
 		this.panelReserva.setVisible(true);
 	}
+	
+	public void eMostrarReserva() {
+		panelReserva.setConsulta(panelBusquedaReserva.getConsulta());
+	}
 }

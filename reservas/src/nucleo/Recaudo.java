@@ -15,7 +15,7 @@ public class Recaudo implements AccesoaDatos {
 
 	private HabitacionOcupada habitacionOcupada;
 	
-	private SimpleDateFormat formato = new SimpleDateFormat("dd-mm-yyyy");
+	private SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
 	
 	public int getIdRecaudo() {
 		return idRecaudo;

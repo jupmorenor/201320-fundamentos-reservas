@@ -16,7 +16,7 @@ import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JCalendar;
 
-public class PanelBusqueda extends JPanel implements ActionListener{
+public class PanelBusquedaHabitacion extends JPanel implements ActionListener{
 	
 	public static final String CI = "CI";
 	
@@ -63,7 +63,7 @@ public class PanelBusqueda extends JPanel implements ActionListener{
 	/**
 	 * 
 	 */
-	public PanelBusqueda() {
+	public PanelBusquedaHabitacion() {
 		this.setBorder(new TitledBorder(""));
 		this.setLayout(null);
 		

@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
  */
 public class PanelOpciones extends JPanel implements ActionListener{
 
-	private VentanaPrincipal ventanaPrincipal;
+	private VentanaAdministrador ventanaAdministrador;
 	
 	public static final String ACEPTAR = "Aceptar";
 	

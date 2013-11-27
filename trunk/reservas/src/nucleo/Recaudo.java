@@ -79,7 +79,8 @@ public class Recaudo implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "";
+		return cadena;
 	}
 
 

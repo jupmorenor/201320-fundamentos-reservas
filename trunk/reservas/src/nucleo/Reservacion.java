@@ -3,12 +3,14 @@ package nucleo;
 public class Reservacion implements AccesoaDatos {
 
 	private int idReservacion;
+	
+	private String estadoReservacion;
 
-	private final String CONFIRMADA = "CO";
+	public static final String CONFIRMADA = "CO";
 
-	private final String RADICADA = "RA";
+	public static final String RADICADA = "RA";
 
-	private final String CANCELADA = "CA";
+	public static final String CANCELADA = "CA";
 
 	private Cliente cliente;
 
@@ -22,6 +24,16 @@ public class Reservacion implements AccesoaDatos {
 	public void setIdReservacion(int idReservacion) {
 		this.idReservacion = idReservacion;
 	}
+
+	public String getEstadoReservacion() {
+		return estadoReservacion;
+	}
+
+
+	public void setEstadoReservacion(String estadoReservacion) {
+		this.estadoReservacion = estadoReservacion;
+	}
+
 
 	public Cliente getCliente() {
 		return cliente;
@@ -47,7 +59,11 @@ public class Reservacion implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "INSERT INTO reservacion (k_idreservacion, k_idcliente, k_idestado, k_idestadia) " +
+				"VALUES (((SELECT COUNT(k_idreservacion) FROM reservacion) + 1)," +
+				cliente.getIdCliente() + ", '" + RADICADA + "', " +
+				"(SELECT count(k_idestadia) from ESTADIA) );";
+		return cadena;
 	}
 
 
@@ -55,7 +71,9 @@ public class Reservacion implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#modificarDatos()
 	 */
 	public String modificarDatos() {
-		return null;
+		String cadena = "UPDATE reservacion SET k_idestado = '" + CANCELADA + 
+				"' WHERE k_idreservacion = " + getIdReservacion() + ";";
+		return cadena;
 	}
 
 
@@ -71,7 +89,11 @@ public class Reservacion implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#consultarDatos()
 	 */
 	public String consultarDatos() {
-		return null;
+		String cadena = "SELECT R.k_idreservacion FROM reservacion R, cliente C, estadia E " +
+				"WHERE C.n_nombrecliente = UPPER(" + cliente.getNombreCliente() + ") AND C.k_idcliente = R.k_idcliente " +
+						"AND E.f_fechainicio = " + estadia.getFechaInicio() + " AND E.k_idestadia = R.k_idestadia AND R.k_idestado = '" 
+				+ RADICADA + "';";
+		return cadena;
 	}
 
 }

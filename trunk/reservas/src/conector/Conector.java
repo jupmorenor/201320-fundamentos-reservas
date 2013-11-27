@@ -60,7 +60,7 @@ public class Conector
 		{
 			Statement stmt = dbConexion.createStatement();
 			rta += stmt.executeUpdate(cadenaSql);  			
-			dbConexion.close();
+			//dbConexion.close();
 
 		}
 		catch(SQLException ex)

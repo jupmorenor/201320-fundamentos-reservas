@@ -54,7 +54,21 @@ public class HabitacionOcupada implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#guardarDatos()
 	 */
 	public String guardarDatos() {
-		return null;
+		String cadena = "INSERT INTO habitacionocupada (k_numerohabitacion, k_consecutivo, k_idestadia)	" +
+				"VALUES (" + habitacion.getNumHabitacion() + "," +
+						"((SELECT COUNT(k_consecutivo) FROM habitacionocupada WHERE k_numerohabitacion = " + habitacion.getNumHabitacion() + ") + 1)," +
+								"(SELECT R.k_idestadia	FROM reservacion R, habitacionreservada HR " +
+								"WHERE HR.k_numerohabitacion = " + habitacion.getNumHabitacion() + 
+								" AND HR.k_idreservacion = R.k_idreservacion AND R.k_idestado = '" + Reservacion.RADICADA + "' ));";
+		return cadena;
+	}
+	
+	public String guardarSinReserva() {
+		String cadena = "INSERT INTO habitacionocupada (k_numerohabitacion, k_consecutivo, k_idestadia) " +
+				"VALUES (" + habitacion.getNumHabitacion() + ",((SELECT COUNT(k_consecutivo) " +
+						"FROM habitacionocupada WHERE k_numerohabitacion = " + habitacion.getNumHabitacion() + 
+						") + 1),(SELECT COUNT(k_idestadia) FROM estadia));";
+		return cadena;
 	}
 
 
@@ -62,7 +76,8 @@ public class HabitacionOcupada implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#modificarDatos()
 	 */
 	public String modificarDatos() {
-		return null;
+		String cadena = "";
+		return cadena;
 	}
 
 
@@ -78,7 +93,11 @@ public class HabitacionOcupada implements AccesoaDatos {
 	 * @see nucleo.AccesoaDatos#consultarDatos()
 	 */
 	public String consultarDatos() {
-		return null;
+		String cadena = "SELECT COUNT(k_numerohabitacion) FROM habitacionocupada " +
+				"WHERE k_numerohabitacion = " + habitacion.getNumHabitacion() + 
+				" AND k_consecutivo = (SELECT COUNT(HO.k_consecutivo) FROM estadia E, habitacionocupada HO " +
+				"WHERE E.k_idestadia = HO.k_idestadia AND current_date <= (E.f_fechainicio + E.q_nochesestadia));";
+		return cadena;
 	}
 
 }

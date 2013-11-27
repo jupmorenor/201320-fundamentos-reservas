@@ -27,7 +27,7 @@ public class PanelServicios1 extends JPanel implements ActionListener{
 	private JButton btnConsumo;
 
 	/**
-	 * 
+	 * en este panel estan los botones que manejan los servicios de crear habitacion y registrar consumo
 	 */
 	public PanelServicios1(VentanaAdministrador ventanaAdministrador) {
 		this.setBorder(new TitledBorder(""));

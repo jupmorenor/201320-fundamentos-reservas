@@ -34,13 +34,12 @@ public class PanelHabitacion extends JPanel{
 	private JTextField txtEstado;	
 	
 	private String[] filtros1;
-	
-	private String[] filtros2;
 
 	/**
 	 * 
 	 */
 	public PanelHabitacion() {
+		this.setName("panel_habitacion");
 		this.setBorder(new TitledBorder("Información de la Habitación"));
 		this.setLayout(new BorderLayout());	
 		this.setLayout(null);
@@ -70,7 +69,6 @@ public class PanelHabitacion extends JPanel{
 		
 		this.txtEstado = new JTextField("DISPONIBLE");
 		this.txtEstado.setBounds(160, 110, 200, 25);
-		this.txtEstado.setEditable(false);
 		
 		this.add(lblEstado);
 		this.add(lblTipo);
@@ -81,5 +79,95 @@ public class PanelHabitacion extends JPanel{
 		this.add(cbxTipo);
 		this.add(txtPrecioNoche);
 	}
+	
+	/**
+	 * deshabilita los campos del panel
+	 */
+	public void deshabilitarCampos(){
+		this.txtEstado.setEditable(false);
+		this.txtNumero.setEditable(false);
+		this.txtPrecioNoche.setEditable(false);
+		this.cbxTipo.setEnabled(false);
+	}
+
+	/**
+	 * retorna el numero de la habitacion tomado del campo de texto
+	 * @return
+	 */
+	public int getNumero() {
+		return Integer.parseInt(txtNumero.getText());
+	}
+
+	/**
+	 * establece el numero de la habitacion en el campo de texto
+	 * @param numero
+	 */
+	public void setNumero(int numero) {
+		this.txtNumero.setText("" + numero);
+	}
+
+	/**
+	 * retorna el tipo de habitacion seleccionado
+	 * @return
+	 */
+	public String getTipo() {
+		return (String) cbxTipo.getSelectedItem();
+	}
+
+	/**
+	 * establece el tipo de habitacion para mostrar
+	 * @param cbxTipo
+	 */
+	public void setTipo(String tipo) {
+		this.cbxTipo.setSelectedItem(tipo);
+	}
+
+	/**
+	 * retorna el precio por noche tomado del campo de texto
+	 * @return
+	 */
+	public double getPrecioNoche() {
+		return Double.parseDouble(txtPrecioNoche.getText());
+	}
+
+	/**
+	 * establece el precio noche para mostrar
+	 * @param txtPrecioNoche
+	 */
+	public void setPrecioNoche(double precioNoche) {
+		this.txtPrecioNoche.setText("" + precioNoche);;
+	}
+
+	/**
+	 * retorna el estado de la habitacion
+	 * @return
+	 */
+	public String getEstado() {
+		return txtEstado.getText();
+	}
+
+	/**
+	 * establece el estado para mostrar
+	 * @param txtEstado
+	 */
+	public void setEstado(String estado) {
+		this.txtEstado.setText(estado);
+	}
+	
+	/**
+	 * retorna el arreglo de filtros, tipos de habitaciones
+	 * @return
+	 */
+	public String[] getFiltros1() {
+		return filtros1;
+	}
+
+	/**
+	 * establece el arreglo de el filtro de los tipod de habitaciones
+	 * @param filtros1
+	 */
+	public void setFiltros1(String[] filtros1) {
+		this.filtros1 = filtros1;
+	}	
 
 }

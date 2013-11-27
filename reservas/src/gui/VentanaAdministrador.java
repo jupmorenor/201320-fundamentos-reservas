@@ -26,10 +26,6 @@ public class VentanaAdministrador extends JFrame{
 	
 	private PanelReserva panelReserva;	
 	
-	private PanelConsumo panelConsumo;
-	
-	private PanelCancelar panelCancelar;
-	
 	private PanelMenu panelMenu;
 	
 	private VentanaSecundaria ventanaSecundaria;
@@ -84,7 +80,10 @@ public class VentanaAdministrador extends JFrame{
 	}
 	
 	public void eHacerReserva(){
-		
+		PanelHacerReserva panelHacerReserva = new PanelHacerReserva();
+		ventanaSecundaria.setPanel(panelHacerReserva);
+		ventanaSecundaria.setTitulo("Hacer Reserva");
+		ventanaSecundaria.setVisible(true);
 	}
 	
 	public void eCancelarReserva(){
@@ -102,7 +101,10 @@ public class VentanaAdministrador extends JFrame{
 	}
 	
 	public void eCheckOut(){
-		
+		TablaConsumos tablaConsumos = new TablaConsumos();
+		ventanaSecundaria.setPanel(tablaConsumos);
+		ventanaSecundaria.setTitulo("Hacer Check - Out");
+		ventanaSecundaria.setVisible(true);
 	}
 	
 	public void eRegistrarConsumo(){
@@ -120,18 +122,21 @@ public class VentanaAdministrador extends JFrame{
 	}
 	
 	public void eVerHabitacion(){
+		this.panelHabitacion.deshabilitarCampos();
 		this.panelHabitacion.setVisible(true);
 		this.panelHuesped.setVisible(false);
 		this.panelReserva.setVisible(false);
 	}
 	
 	public void eVerHuesped(){
+		this.panelHuesped.deshabilitarCampos();
 		this.panelHabitacion.setVisible(false);
 		this.panelHuesped.setVisible(true);
 		this.panelReserva.setVisible(false);
 	}
 	
 	public void eVerReserva(){
+		this.panelReserva.deshabilitarCampos();
 		this.panelHabitacion.setVisible(false);
 		this.panelHuesped.setVisible(false);
 		this.panelReserva.setVisible(true);

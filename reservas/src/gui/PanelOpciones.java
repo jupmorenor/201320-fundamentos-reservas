@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
  */
 public class PanelOpciones extends JPanel implements ActionListener{
 
-	private VentanaAdministrador ventanaAdministrador;
+	private VentanaSecundaria ventanaSecundaria;
 	
 	public static final String ACEPTAR = "Aceptar";
 	
@@ -29,12 +29,14 @@ public class PanelOpciones extends JPanel implements ActionListener{
 	
 	
 	/**
-	 * 
+	 * este es el panel de la ventana secundaria que tiene las opciones aceptar y cancelar
 	 */
-	public PanelOpciones() {
+	public PanelOpciones(VentanaSecundaria ventanaSecundaria) {
 		this.setBorder(new TitledBorder(""));
 		this.setLayout(new BorderLayout());	
 		this.setLayout(null);
+		
+		this.ventanaSecundaria = ventanaSecundaria;
 				
 		this.btnOpcion1 = new JButton(ACEPTAR);
 		this.btnOpcion1.setActionCommand(ACEPTAR);
@@ -50,10 +52,15 @@ public class PanelOpciones extends JPanel implements ActionListener{
 		this.add(btnOpcion2);
 	}
 
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getActionCommand().equals(ACEPTAR)){
+			ventanaSecundaria.eAceptar();
+		}
+		if(e.getActionCommand().equals(CANCELAR)){
+			ventanaSecundaria.dispose();
+		}
 		
 	}
 

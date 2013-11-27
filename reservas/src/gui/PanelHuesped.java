@@ -40,6 +40,7 @@ public class PanelHuesped extends JPanel{
 	 * 
 	 */
 	public PanelHuesped() {
+		this.setName("panel_huesped");
 		this.setBorder(new TitledBorder("Información del Huesped"));
 		this.setLayout(new BorderLayout());	
 		this.setLayout(null);
@@ -85,5 +86,97 @@ public class PanelHuesped extends JPanel{
 		this.add(txtNombre);
 		this.add(txtEdad);
 	}
+	
+	/**
+	 * deshabilita los campos del panel
+	 */
+	public void deshabilitarCampos(){
+		this.txtDireccion.setEditable(false);
+		this.txtEdad.setEditable(false);
+		this.txtId.setEditable(false);
+		this.txtNombre.setEditable(false);
+		this.txtTelefono.setEditable(false);
+	}
 
+	/**
+	 * retorna la identificacion del huesped
+	 * @return
+	 */
+	public String getId() {
+		return txtId.getText();
+	}
+
+	/**
+	 * establecer la identificacion del huesped para mostrar
+	 * @param txtId
+	 */
+	public void setId(String id) {
+		this.txtId.setText(id);
+	}
+
+	/**
+	 * retorna el nombre del huesped
+	 * @return
+	 */
+	public String getNombre() {
+		return txtNombre.getText();
+	}
+
+	/**
+	 * establece el nombre del huesped para mostrar
+	 * @param txtNombre
+	 */
+	public void setTxtNombre(String nombre) {
+		this.txtNombre.setText(nombre);
+	}
+	
+	/**
+	 * retorna la edad del huesped
+	 * @return
+	 */
+	public int getEdad() {
+		return Integer.parseInt(txtEdad.getText());
+	}
+
+	/**
+	 * establecer la edad del beneficiario
+	 * @param txtEdad
+	 */
+	public void setEdad(int edad) {
+		this.txtEdad.setText("" + edad);
+	}
+
+	/**
+	 * retorna el telefono del huesped
+	 * @return
+	 */
+	public int getTelefono() {
+		return Integer.parseInt(txtTelefono.getText());
+	}
+
+	/**
+	 * establece el telefono del huesped para mostrar
+	 * @param txtTelefono
+	 */
+	public void setTelefono(int telefono) {
+		this.txtTelefono.setText("" + telefono);
+	}
+
+	/**
+	 * retorna la direccion del huesped
+	 * @return
+	 */
+	public String getDireccion() {
+		return txtDireccion.getText();
+	}
+
+	/**
+	 * establece la direccion del huesped para mostrar
+	 * @param txtDireccion
+	 */
+	public void setDireccion(String direccion) {
+		this.txtDireccion.setText(direccion);
+	}
+
+	
 }

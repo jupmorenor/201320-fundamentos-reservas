@@ -62,5 +62,63 @@ public class PanelReserva extends JPanel{
 		this.add(txtDiasReservados);
 		this.add(txtFechaInicio);
 	}
+	
+	/**
+	 * deshabilita los campos del panel
+	 */
+	public void deshabilitarCampos(){
+		this.txtDiasReservados.setEditable(false);
+		this.txtFechaInicio.setEditable(false);
+		this.txtNumero.setEditable(false);
+	}
 
+	/**
+	 * retorna el numero de la reserva
+	 * @return
+	 */
+	public int getNumero() {
+		return Integer.parseInt(txtNumero.getText());
+	}
+
+	/**
+	 * establece el numero de la reserva para mostrar
+	 * @param txtNumero
+	 */
+	public void setNumero(int numero) {
+		this.txtNumero.setText("" + numero);
+	}
+
+	/**
+	 * retorna la cantidad de dias reservados
+	 * @return
+	 */
+	public int getDiasReservados() {
+		return Integer.parseInt(txtDiasReservados.getText());
+	}
+
+	/**
+	 * establece los dias reservados para mostrar
+	 * @param txtDiasReservados
+	 */
+	public void setDiasReservados(int diasReservados) {
+		this.txtDiasReservados.setText("" + diasReservados);;
+	}
+
+	/**
+	 * retorna la fecha de inicio de la reserva
+	 * @return
+	 */
+	public String getFechaInicio() {
+		return txtFechaInicio.getText();
+	}
+
+	/**
+	 * establece la fecha de inicio para mostrar
+	 * @param txtFechaInicio
+	 */
+	public void setFechaInicio(String fechaInicio) {
+		this.txtFechaInicio.setText(fechaInicio);
+	}
+
+	
 }

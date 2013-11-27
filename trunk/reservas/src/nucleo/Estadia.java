@@ -11,7 +11,7 @@ public class Estadia implements AccesoaDatos {
 
 	private int nochesEstadia;
 	
-	private SimpleDateFormat formato = new SimpleDateFormat("dd-mm-yyyy");
+	private SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
 
 	public int getIdEstadia() {
 		return idEstadia;

@@ -33,6 +33,7 @@ public class VentanaInicio extends JFrame implements ActionListener{
 	private Conector conexion;
 	private Usuario usuario;
 	private VentanaAdministrador principal;
+	private VentanaCliente cliente;
 	
 	private static final String INGRESAR = "Ingresar";
 	private static final String REGISTRARSE = "Registrarse";
@@ -104,7 +105,9 @@ public class VentanaInicio extends JFrame implements ActionListener{
 								this.setVisible(false);
 								break;
 							case "CLIENTE":
-								//TODO acceder a la interfaz que permite al cliente manipular reservas
+								cliente = new VentanaCliente();
+								cliente.setVisible(true);
+								this.setVisible(false);
 								break;
 							}
 						} else {

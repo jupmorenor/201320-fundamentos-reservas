@@ -67,19 +67,19 @@ public class PanelServicios2 extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals(HACER)){
+		switch (e.getActionCommand()) {
+		case HACER:
 			ventanaAdministrador.eHacerReserva();
-		}
-		if(e.getActionCommand().equals(CANCELAR)){
+			break;
+		case CANCELAR:
 			ventanaAdministrador.eCancelarReserva();
-		}
-		if(e.getActionCommand().equals(CHECKIN)){
+			break;
+		case CHECKIN:
 			ventanaAdministrador.eCheckIn();
-		}
-		if(e.getActionCommand().equals(CHECKOUT)){
+			break;
+		case CHECKOUT:
 			ventanaAdministrador.eCheckOut();
-		}
-		
+			break;
+		}	
 	}
-
 }

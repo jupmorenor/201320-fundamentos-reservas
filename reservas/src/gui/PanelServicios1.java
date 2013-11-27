@@ -51,12 +51,13 @@ public class PanelServicios1 extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals(CREAR)){
+		switch (e.getActionCommand()) {
+		case CREAR:
 			ventanaAdministrador.eCrearHabitacion();
-		}
-		if(e.getActionCommand().equals(CONSUMO)){
+			break;
+		case CONSUMO:
 			ventanaAdministrador.eRegistrarConsumo();
+			break;
 		}
 	}
-
 }

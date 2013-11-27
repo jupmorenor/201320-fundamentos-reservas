@@ -55,13 +55,12 @@ public class PanelOpciones extends JPanel implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals(ACEPTAR)){
+		switch (e.getActionCommand()) {
+		case ACEPTAR:
 			ventanaSecundaria.eAceptar();
-		}
-		if(e.getActionCommand().equals(CANCELAR)){
+			break;
+		case CANCELAR:
 			ventanaSecundaria.dispose();
 		}
-		
 	}
-
 }

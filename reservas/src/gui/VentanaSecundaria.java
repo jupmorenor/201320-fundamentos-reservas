@@ -3,6 +3,8 @@
  */
 package gui;
 
+import java.sql.ResultSet;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -11,7 +13,6 @@ import nucleo.Cliente;
 import nucleo.Estadia;
 import nucleo.Habitacion;
 import nucleo.Reservacion;
-
 import conector.AdminConexion;
 import conector.Conector;
 
@@ -26,6 +27,12 @@ public class VentanaSecundaria extends JFrame{
 	private JPanel panelPrincipal;
 	
 	private Conector conexion;
+	
+	private Cliente cliente;
+	
+	private Reservacion reserva;
+	
+	private ResultSet consulta;
 	/**
 	 * 
 	 */
@@ -74,13 +81,13 @@ public class VentanaSecundaria extends JFrame{
 		case "panel_hacer_reserva":
 			PanelHacerReserva panelHacerReserva = (PanelHacerReserva) panelPrincipal;
 			conexion = new AdminConexion("datos2.jaa").generarConexion();
-			Cliente cliente = new Cliente();
+			cliente = new Cliente();
 			cliente.setIdCliente(panelHacerReserva.getId());
 			cliente.setNombreCliente(panelHacerReserva.getNombre());
 			Estadia estadia = new Estadia();
 			estadia.setNochesEstadia(panelHacerReserva.getDias());
 			estadia.setFechaInicio(panelHacerReserva.getFechaInicio());
-			Reservacion reserva = new Reservacion();
+			reserva = new Reservacion();
 			reserva.setCliente(cliente);
 			reserva.setEstadia(estadia);
 			conexion.SetCadena(cliente.guardarDatos());
@@ -96,8 +103,26 @@ public class VentanaSecundaria extends JFrame{
 		//Define lo que ocurre cuando se la da aceptar a la ventana secundaria cancelar reserva
 		case "panel_cancelar":
 			PanelCancelar panelCancelar = (PanelCancelar) panelPrincipal;
-			//TODO pasos para cancelar una reserva
-			JOptionPane.showMessageDialog(this, "Ejemplo Prueba: Reserva Cancelada Nombre: " + panelCancelar.getNombre() );
+			conexion = new AdminConexion("datos2.jaa").generarConexion();
+			cliente = new Cliente();
+			cliente.setNombreCliente(panelCancelar.getNombre());
+			reserva = new Reservacion();
+			reserva.setCliente(cliente);
+			conexion.SetCadena(reserva.consultarDatos(panelCancelar.getFechaInicio()));
+			consulta = conexion.Consultar();
+			try{
+				if(consulta.next()){
+					reserva.setIdReservacion(consulta.getInt("k_idreservacion"));
+					conexion.SetCadena(reserva.modificarDatos());
+					conexion.EjecutarSql();
+				}
+				
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(this, "Reserva no Encontrada");
+			}
+			
+			
+			JOptionPane.showMessageDialog(this, "Reserva Cancelada");
 			break;
 			
 		//Define lo que ocurre cuando se la da aceptar a la ventana secundaria hacer check in

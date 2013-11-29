@@ -91,11 +91,18 @@ public class Reservacion implements AccesoaDatos {
 	/**
 	 * @see nucleo.AccesoaDatos#consultarDatos()
 	 */
-	public String consultarDatos() {
+	public String consultarDatos(String fecha) {
 		String cadena = "SELECT R.k_idreservacion FROM reservacion R, cliente C, estadia E " +
-				"WHERE C.n_nombrecliente = UPPER(" + cliente.getNombreCliente() + ") AND C.k_idcliente = R.k_idcliente " +
-						"AND E.f_fechainicio = " + estadia.getFechaInicio() + " AND E.k_idestadia = R.k_idestadia AND R.k_idestado = '" 
+				"WHERE C.n_nombrecliente = UPPER('" + cliente.getNombreCliente() + "') AND C.k_idcliente = R.k_idcliente " +
+						"AND E.f_fechainicio = '" + fecha + "' AND E.k_idestadia = R.k_idestadia AND R.k_idestado = '" 
 				+ RADICADA + "';";
+		return cadena;
+	}
+
+
+	@Override
+	public String consultarDatos() {
+		String cadena = "SELECT R.k_idreservacion, C.n_nombrecliente FROM reservacion R, cliente C WHERE R.k_idcliente = C.k_idcliente AND (C.n_nombrecliente LIKE UPPER('%"+cliente.getNombreCliente()+"%')) AND R.k_idestado = 'RA';";
 		return cadena;
 	}
 

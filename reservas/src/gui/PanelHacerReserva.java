@@ -32,7 +32,7 @@ public class PanelHacerReserva extends JPanel{
 	
 	private JTextField txtDias;	
 	
-	private JCalendar cldFechaInicio;	
+	private JTextField txtFechaInicio;	
 	
 	private SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
 
@@ -63,9 +63,9 @@ public class PanelHacerReserva extends JPanel{
 		this.txtDias = new JTextField();
 		this.txtDias.setBounds(160, 60, 200, 19);
 		
-		this.cldFechaInicio = new JCalendar();
-		this.cldFechaInicio.setBorder(new TitledBorder("Fecha de Inicio"));
-		this.cldFechaInicio.setBounds(20, 75, 340, 120);
+		this.txtFechaInicio = new JTextField();
+		this.txtFechaInicio.setBorder(new TitledBorder("Fecha de Inicio"));
+		this.txtFechaInicio.setBounds(20, 85, 340, 40);
 	
 		this.add(lblId);
 		this.add(txtId);
@@ -73,7 +73,7 @@ public class PanelHacerReserva extends JPanel{
 		this.add(txtNombre);
 		this.add(lblDias);
 		this.add(txtDias);
-		this.add(cldFechaInicio);
+		this.add(txtFechaInicio);
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class PanelHacerReserva extends JPanel{
 	 * @return
 	 */
 	public String getFechaInicio() {
-		return formato.format(cldFechaInicio.getDate());
+		return txtFechaInicio.getText();
 	}
 	
 }

@@ -22,7 +22,7 @@ public class PanelCancelar extends JPanel{
 	
 	private JTextField txtNombre;
 	
-	private JCalendar cldFechaInicio;
+	private JTextField txtFechainicio;
 
 	/**
 	 * 
@@ -38,13 +38,13 @@ public class PanelCancelar extends JPanel{
 		this.txtNombre= new JTextField();
 		this.txtNombre.setBounds(160, 10, 200, 25);
 		
-		this.cldFechaInicio = new JCalendar();
-		this.cldFechaInicio.setBorder(new TitledBorder("Fecha de Inicio"));
-		this.cldFechaInicio.setBounds(20, 40, 340, 135);
+		this.txtFechainicio = new JTextField();
+		this.txtFechainicio.setBorder(new TitledBorder("Fecha de Inicio"));
+		this.txtFechainicio.setBounds(20, 60, 340, 40);
 		
 		this.add(lblNombre);
 		this.add(txtNombre);
-		this.add(cldFechaInicio);
+		this.add(txtFechainicio);
 	}
 
 	/**
@@ -59,8 +59,8 @@ public class PanelCancelar extends JPanel{
 	 * retorna la fecha de inicio (TIPO Date)
 	 * @return
 	 */
-	public Date getFechaInicio() {
-		return cldFechaInicio.getDate();
+	public String getFechaInicio() {
+		return txtFechainicio.getText();
 	}
 	
 }

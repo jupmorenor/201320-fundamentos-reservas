@@ -9,13 +9,13 @@ import java.sql.ResultSet;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import conector.AdminConexion;
 import conector.Conector;
-
 import nucleo.Cliente;
 import nucleo.Reservacion;
 
@@ -78,7 +78,25 @@ public class PanelBusquedaReserva extends JPanel implements ActionListener{
 			Conector conexion = new AdminConexion("datos2.jaa").generarConexion();
 			conexion.SetCadena(reserva.validarDatos());
 			consulta = conexion.Consultar();
+			try{
+				if(consulta.next()){
+					reserva.setIdReservacion(consulta.getInt("k_idreservacion"));
+					conexion.SetCadena(reserva.consultarDatos());
+					consulta = conexion.Consultar();
+					if(consulta.next()){
+						JOptionPane.showMessageDialog(this,"id: "+consulta.getInt("k_idreservacion")+", cliente: "+consulta.getString("n_nombrecliente") ,"Reserva Encontrada", JOptionPane.INFORMATION_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(this, "Esta reserva ya esta cancelada o confirmada");
+					}
+				} else {
+					JOptionPane.showMessageDialog(this, "Reserva no Encontrada Rs");
+				}
+				
+			}catch(Exception ed){
+				JOptionPane.showMessageDialog(this, "Reserva no Encontrada");
+			}
 			break;
+			
 		}
 		
 	}

@@ -47,7 +47,7 @@ public class PanelReserva extends JPanel{
 		this.lblDiasReservados = new JLabel("Dias Reservados");
 		this.lblDiasReservados.setBounds(20, 50, 100, 25);
 		
-		this.lblFechaInicio = new JLabel("Fecha Inicio");
+		this.lblFechaInicio = new JLabel("nombre cliente");
 		this.lblFechaInicio.setBounds(20, 80, 100, 25);
 		
 		this.txtNumero = new JTextField();
@@ -127,7 +127,9 @@ public class PanelReserva extends JPanel{
 	public void setConsulta(ResultSet consulta) {
 		this.consulta = consulta;
 		try {
-			if(consulta.next()) {
+			if(consulta.next()){
+				this.setFechaInicio(consulta.getString("n_nombrecliente"));
+				this.setNumero(consulta.getInt("k_idreservacion"));
 				
 			}
 		}catch (Exception ex) {
